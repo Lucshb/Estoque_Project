@@ -6,6 +6,30 @@ from datetime import datetime, timedelta
 # Configurações iniciais
 st.set_page_config(page_title="Gestão de Estoque", layout="wide")
 
+# CSS para customizar a aparência
+st.markdown(
+    """
+    <style>
+    .main {
+        background-color: #1e1e2e;
+        color: #f1f1f2;
+    }
+    .css-18e3th9 {
+        background-color: #1e1e2e !important;
+    }
+    .css-1d391kg {
+        color: #f1f1f2;
+    }
+    .css-1offfwp {
+        background-color: #4b0082;
+    }
+    h1, h2, h3 {
+        color: #ad8beb;
+    }
+    </style>
+    """, unsafe_allow_html=True
+)
+
 # Simulando dados de produtos (peças de caminhões)
 np.random.seed(42)
 produtos = {
