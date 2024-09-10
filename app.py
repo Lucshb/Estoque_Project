@@ -2,9 +2,29 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+import base64
+
+# Função para carregar uma imagem local como base64
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+image_path = "estoque.png"  # Certifique-se de que o caminho esteja correto
+image_base64 = get_base64_of_bin_file(image_path)
 
 # Configurações iniciais
-st.set_page_config(page_title="Gestão de Estoque", layout="wide")
+st.set_page_config(layout="wide")
+
+# Título principal
+st.markdown(
+    f"""
+    <div style='text-align: center;'>
+        <h1> Sistema de Gestão de Estoque <img src="data:image/png;base64,{image_base64}" alt="caminhão" width="70" height="50"> </h1>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
 
 # CSS para customizar a aparência
 st.markdown(
